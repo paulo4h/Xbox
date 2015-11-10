@@ -11,7 +11,7 @@ class Console
         Console(const Console &);
         ~Console();
         void exibirHistoricoJogos();
-        void adicionarJogos();
+        void adicionarJogos(const string &);
         void verificarTemperaturaFonte();
     protected:
         float temperaturaFonte;

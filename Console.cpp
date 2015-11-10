@@ -10,8 +10,61 @@ Console::Console(int numeroAtualJogos, float temperaturaFonte, const string &jog
 
 }
 
+
+Console::Console(const Console &atual)
+{
+    this->numeroAtualJogos = atual.numeroAtualJogos;
+    this->temperaturaFonte = atual.temperaturaFonte;
+    this->jogoAtual = atual.jogoAtual;
+
+    if(historicoJogos != 0)
+    {
+      historicoJogos = new string[numeroAtualJogos];
+      for(i=0;i<numeroAtualJogos;i++)
+        this->historicoJogos[i] = atual.historicoJogos[i];
+    }
+
+}
+
 Console::~Console()
 {
  delete [] historicoJogos;
 
 }
+
+void Console::exibirHistoricoJogos()
+{
+
+
+}
+
+
+void Console::adicionarJogos( const string &jogoAtual )
+{
+    if( numeroAtualJogos != 0)
+    {
+        string *aux = new string[numeroAtualJogos];
+        for(i=0;i<numeroAtualJogos;i++)
+            aux[i] = historicoJogos[i];
+        delete [] this->historicoJogos;
+        historicoJogos = new string[++numeroAtualJogos];
+
+        for(i=0;i<numeroAtualJogos;i++)
+            historicoJogos[i] = aux[i];
+
+        historicoJogos[numeroAtualJogos-1] = jogoAtual;
+
+        delete [] aux;
+
+    }
+
+}
+
+
+void Console::verificarTemperaturaFonte()
+{
+
+}
+
+
+

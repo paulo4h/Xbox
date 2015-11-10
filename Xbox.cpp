@@ -12,6 +12,16 @@ Xbox::Xbox(const string &nomeUsuario, bool statusKinect, int x, int y, int d , i
     d < 10 ? this->d = y : this->d = 0 ;
 }
 
+Xbox::Xbox(const Xbox &xboxCopiado)
+:Console(static_cast<Console>(xboxCopiado))
+{
+    this->nomeUsuario = xboxCopiado.nomeUsuario;
+    this->statusKinect = xboxCopiado.statusKinect;
+    this->x = xboxCopiado.x;
+    this->x = xboxCopiado.y;
+    this->d = xboxCopiado.d;
+}
+
 Xbox::~Xbox()
 {
 
